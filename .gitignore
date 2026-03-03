@@ -1,0 +1,22 @@
+# ここに無視したいファイルやディレクトリを記述します
+# 必要な場合はコメントアウトを外して使用してください
+
+# VBA 開発用
+*.xlsb
+*.tmp
+~$*.xls*
+*.xlsm
+output/
+test/
+workbook/
+
+# build成果物
+archive/
+build/
+*.zip
+
+# 環境依存ファイル
+*.log
+log/
+config/
+*.ini

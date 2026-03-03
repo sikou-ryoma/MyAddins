@@ -1,0 +1,15 @@
+﻿Option Explicit
+
+
+'---ショートカットの登録
+Private Sub Workbook_Open()
+    On Error Resume Next
+    RegisterShortcuts
+End Sub
+
+
+'---ショートカットの解除
+Private Sub Workbook_BeforeClose(Cancel As Boolean)
+    On Error Resume Next
+    UnregisterShortcuts
+End Sub
