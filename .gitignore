@@ -3,6 +3,7 @@
 
 # VBA 開発用
 *.xlsb
+*.xlam
 *.tmp
 ~$*.xls*
 *.xlsm
