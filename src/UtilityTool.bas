@@ -45,18 +45,29 @@ Attribute ActiveSheetInfo.VB_ProcData.VB_Invoke_Func = " \n14"
     Set ws.sheet = wb.ActiveSheet
     colNum = ws.lastCol(ActiveCell.Row)
     
-    '---アクティブブックの情報をメッセージボックスに表示
+    '---アクティブブックの情報をイミディエイトウインドウに表示
+    Debug.Print "=======<< ActiveSheetInfo >>=============================================================================="
+    Debug.Print "Workbook           : " & wb.FullName
+    Debug.Print "Sheet              : " & ws.sheet.Name
+    Debug.Print "ActiveCellAddress  : " & ActiveCell.Address
+    Debug.Print "value              : " & ActiveCell.Value
+    Debug.Print "SelectionAddress   : " & Selection.Address
+    Debug.Print "EndRow             : " & ws.lastRow(ActiveCell.Column)
+    Debug.Print "EndColumn          : " & colNum & "  (" & ColumnNumberToLetter(colNum) & ")"
+    Debug.Print "Interior Color     : " & ActiveCell.Interior.Color
+    Debug.Print "Interior Pattern   : " & ActiveCell.Interior.Pattern
+    Debug.Print "Font Color         : " & ActiveCell.Font.Color
+    Debug.Print "Log Time           : " & Format(Now, "yyyy_mm_dd hh:nn:ss")
+    Debug.Print "=========================================================================================================="
+    
+    '---MsgBoxでは簡易情報を表示してイミディエイトウインドウの確認を促す
     MsgBox _
         "Workbook  :  " & wb.FullName & vbCrLf & _
         "Sheet  :  " & ws.sheet.Name & vbCrLf & _
         "ActiveCellAddress  :  " & ActiveCell.Address & vbCrLf & _
-        "value  :  " & ActiveCell.Value & vbCrLf & _
         "SelectionAddress  :  " & Selection.Address & vbCrLf & _
-        "EndRow  :  " & ws.lastRow(ActiveCell.Column) & vbCrLf & _
-        "EndColumn  :  " & colNum & "  (" & ColumnNumberToLetter(colNum) & ")" & vbCrLf & _
-        "Color  :  " & ActiveCell.Interior.Color & vbCrLf & _
-        "Font Color  :  " & ActiveCell.Font.Color, vbInformation, _
-        PROC_NAME
+        "詳細はイミディエイトウインドウで確認してください。", _
+        vbInformation, PROC_NAME
     
 End Sub
 
