@@ -93,3 +93,18 @@ Public Sub UpdateCellValue()
     End If
 
 End Sub
+
+
+
+'---ハッシュ変換結果の確認用UDF
+'---簡易インターフェース
+Public Function UDF_Hash(Optional ByVal val As Variant = "") As String
+    UDF_Hash = GetDJB2Hash(CStr(val))
+End Function
+
+'---DJB2ハッシュ変換実行関数
+Private Function GetDJB2Hash(ByVal text As String) As String
+    Dim hasher As HashProvider
+    Set hasher = New HashProvider
+    GetDJB2Hash = hasher.DJB2(text)
+End Function
